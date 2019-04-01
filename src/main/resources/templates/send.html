@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title> Spring Boot Thymeleaf </title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+
+<div class="container">
+    <h2>Email Launch</h2>
+    <form action="#"  th:object="${mailObject}" method="POST">
+
+        <div class="form-group">
+            <label>Email:</label>
+            <input type="email" class="form-control" placeholder="Enter email" th:field="*{to}">
+            <small class="form-text text-muted"  th:if="${#fields.hasErrors('to')}" th:errors="*{to}"
+                   th:style="'color:red;'"></small>
+
+        </div>
+        <div class="form-group">
+            <label>Subject:</label>
+            <input type="text" class="form-control" placeholder="Enter subject" th:field="*{subject}">
+
+
+        </div>
+        <div class="form-group">
+            <label>SMS:</label>
+            <textarea class="form-control" placeholder="Enter text" th:field="*{text}"></textarea>
+
+        </div>
+
+        <button type="submit" class="btn btn-default">Submit</button>
+
+    </form>
+</div>
+
+
+</body>
+</html>
